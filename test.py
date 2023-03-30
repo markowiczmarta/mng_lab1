@@ -58,6 +58,17 @@ class EmailExtractorTestCase(unittest.TestCase):
                 # expect
                 self.assertEqual(surname, extractor.get_surname())
 
+    def test_get_name(self):
+        for x in self.data:
+            with self.subTest():
+                # given
+                email = x[0]
+                name = x[3]
+                # then
+                extractor = EmailExtractor(email)
+                # expect
+                self.assertEqual(name, extractor.get_name())
+
 
 if __name__ == '__main__':
     unittest.main()
